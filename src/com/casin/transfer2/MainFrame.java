@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.casin.info.InfoStorer;
+import com.casin.info.Log;
 import com.casin.task.balance;
 import com.casin.task.login;
 import com.casin.task.pay;
@@ -78,6 +79,8 @@ public class MainFrame extends Activity {
 		super.onCreate(savedInstanceState);
 		//this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
 		//this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
+		Log.configLog(getApplicationContext());
+		Log.getLogger().appendLog("----------------------------------------------\n");
 		BlueWare.withApplicationToken("CA6BBF3144B11CBE51A287FE9CDF050865").start(this.getApplication());
 		vMain = getLayoutInflater().inflate(R.layout.main_view,null);
 		setContentView(vMain);
@@ -252,7 +255,7 @@ public class MainFrame extends Activity {
             case R.id.about:  
             	new  AlertDialog.Builder(MainFrame.this)     
             	                .setTitle("联系作者" )  
-            	                .setMessage("精简自\ncard.sdu.edu.cn\n如有疑问或者建议，请联系\ncasinww@163.com" )  
+            	                .setMessage("精简自\ncard.sdu.edu.cn\n如有疑问或者建议，请联系\ncasinww@163.com\nVersion:2.1" )  
             	                .setPositiveButton("确定" ,  null )  
             	                .show();
                 break;  
@@ -267,6 +270,12 @@ public class MainFrame extends Activity {
 	@Override
 	protected void onDestroy(){
 		new InfoStorer(this.getSharedPreferences("info", Activity.MODE_PRIVATE)).storeAll(etAccount, etPassword, etAmtNumber);
+		try {
+			Log.destroy();
+		} catch (Exception e) {
+			// TODO 自动生成的 catch 块
+			e.printStackTrace();
+		}
 		super.onDestroy();
 		
 	}
@@ -289,7 +298,7 @@ public class MainFrame extends Activity {
 				 img = loginObj.loginAction1(cookies);
 			} catch (Exception e) {
 				
-				e.printStackTrace();
+				e.printStackTrace(com.casin.info.Log.err);
 				
 			}
 			return img;
@@ -327,7 +336,7 @@ public class MainFrame extends Activity {
 				temp1 = temp;
 			} catch (Exception e) {
 				
-				e.printStackTrace();
+				e.printStackTrace(com.casin.info.Log.err);
 				return false;
 			}
 			return true;
@@ -379,7 +388,7 @@ public class MainFrame extends Activity {
 				return imgs;
 			} catch (Exception e) {
 			
-				e.printStackTrace();
+				e.printStackTrace(com.casin.info.Log.err);
 				return null;
 			}
 		}
@@ -410,7 +419,7 @@ public class MainFrame extends Activity {
 					return true;
 				} catch (Exception e) {
 					
-					e.printStackTrace();
+					e.printStackTrace(com.casin.info.Log.err);
 					return false;
 				}
 				

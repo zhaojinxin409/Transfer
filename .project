@@ -29,5 +29,7 @@
 	<natures>
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>com.networkbench.agent.android.eclipse.plugin.NewLensNature</nature>
+		<nature>com.oneapm.agent.android.eclipse.plugin.OneApmNature</nature>
 	</natures>
 </projectDescription>
