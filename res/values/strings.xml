@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">eCard充值</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title">账户信息</string>
+    <string name="account">账户名   </string>
+    <string name="password">查询密码</string>
+    <string name="amt_number">银行卡号</string>
+    <string name="checkcode">验证码                     </string>
+    <string name="submit">转账</string>
+    <string name="confirm">登录</string>
+    <string name="dialog_title">请输入验证码</string>
+    <string name="amt_title">转账金额</string>
+    <string name="samt1">30元</string>
+    <string name="samt2">50元</string>
+    <string name="samt3">100元</string>
+    <string name="samt4">200元</string>
+
+    <color name="black">#3CADFA</color>
+    <color name="red">#FF0000</color>
+
+    <string name="samt5">0.1元</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="wating">请等待</string>
+
+</resources>
