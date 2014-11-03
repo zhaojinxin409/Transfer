@@ -1,15 +1,21 @@
 #山大校园卡充值
 
 ##简介
+
+
     由于在card.sdu.edu.cn上从银行卡到校园卡转账不是很方便，因此模拟网站登录过程
 的http包简化登录的过程。全过程模拟浏览器动作，无任何后门代码。
 
 ##代码结构
+
+
     项目代码结构十分简单，分为在com.casin.transfer2.MainFrame的主界面和
 com.casin.task包中的登录、转账请求以及在登录中用到的屏幕键盘的识别。在
 com.casin.info包中负责用户信息的存储。
 
 ##具体实现
+
+
     com.caisin.transfer2.MainFrame主要实现App的各项界面功能。由于本人Android开发
 经验较少，代码并不美观。具体有两个用于登录的AsyncTask和两个用于转账的AsyncTask组
 成。其余的是界面相关。AsyncTask具体表现为四个内部类。
@@ -23,8 +29,8 @@ com.casin.info包中负责用户信息的存储。
 存。
 
 ##现有问题
+
+
     MainFrame代码很不美观。
     屏幕键盘识别的代码也显得较为笨拙，方法不够通用。
     由于作者能力有限，整个程序的功能很单一。
-
-
