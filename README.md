@@ -3,7 +3,7 @@
 ##简介
 
 
-  由于在[card.sdu.edu.cn](http:\\card.sdu.edu.cn)上从银行卡到校园卡转账不是很方便
+  由于在[card.sdu.edu.cn](http://card.sdu.edu.cn)上从银行卡到校园卡转账不是很方便
 ，因此模拟网站登录过程的http包简化登录的过程。全过程模拟浏览器动作，无任何后门代码。
 
 ##代码结构
