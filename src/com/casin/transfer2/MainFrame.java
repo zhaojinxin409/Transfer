@@ -5,8 +5,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.casin.info.InfoStorer;
+import com.casin.task.balance;
 import com.casin.task.login;
 import com.casin.task.pay;
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import android.os.AsyncTask;
 import android.os.Build;
@@ -31,6 +33,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainFrame extends Activity {
@@ -57,6 +60,7 @@ public class MainFrame extends Activity {
 	private EditText etPassword;	//password
 	private EditText etAmtNumber;	//The bank no
 	private RadioGroup radioGroup1;
+	private TextView tvBalance;
 	
 	
 	private Map<String , String > cookies= new HashMap<String , String>();
@@ -155,6 +159,7 @@ public class MainFrame extends Activity {
 	protected void init2(){
 		
 		button2 = (Button)findViewById(R.id.button1);
+		tvBalance = (TextView)MainFrame.this.findViewById(R.id.balance);
 		checkcode2 = (EditText)findViewById(R.id.etCheckCode1);
 		view2 = (ImageView)findViewById(R.id.imageView2);
 		radioGroup1 = (RadioGroup)findViewById(R.id.radioGroup1);
@@ -327,6 +332,8 @@ public class MainFrame extends Activity {
 				init2();
 				transferTask1 transfer1 = new transferTask1();
 				transfer1.execute(true);
+				BalanceTask bt = new BalanceTask();
+				bt.execute();
 				button2.setEnabled(false);	
 				button2.setText(R.string.wating);
 			}else{
@@ -406,6 +413,8 @@ public class MainFrame extends Activity {
 				waitAnim(view2);
 				transferTask1 transfer1 = new transferTask1();
 				transfer1.execute(false);
+				BalanceTask bt = new BalanceTask();
+				bt.execute();
 			}else{
 				checkcode2.setText("");
 				Toast.makeText(MainFrame.this, "ÆÁÄ»¼üÅÌÊ¶±ð´íÎó", Toast.LENGTH_LONG).show();
@@ -419,5 +428,18 @@ public class MainFrame extends Activity {
 	}
 	
 	
+	private class BalanceTask extends AsyncTask<Void , Void , String>{
+
+		@Override
+		protected String doInBackground(Void... arg0) {
+			return balance.getBalance(cookies);
+		}
+		
+		
+		@Override
+		protected void onPostExecute(String result){
+			tvBalance.setText(tvBalance.getText().toString() + result);
+		}
+	}
 	
 }

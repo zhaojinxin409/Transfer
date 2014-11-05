@@ -24,5 +24,6 @@
     <string name="samt5">0.1元</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="wating">请等待</string>
+    <string name="sbalance">当前余额：</string>
 
 </resources>
