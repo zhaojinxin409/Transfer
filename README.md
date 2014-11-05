@@ -2,7 +2,7 @@
 
 ##安装文件下载地址
 
-  [点我下载](https://code.csdn.net/zjx409/transfer2/tree/master/release/Transfer2.apk)
+  **[点我下载](https://code.csdn.net/zjx409/transfer2/tree/master/release/Transfer2.apk)**
 
 ##简介
 
