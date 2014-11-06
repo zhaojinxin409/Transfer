@@ -1,5 +1,9 @@
 #山大校园卡充值
 
+##安装文件下载地址
+
+  **[点我下载](https://code.csdn.net/zjx409/transfer2/tree/master/release/Transfer2.apk)**
+
 ##简介
 
 
@@ -42,3 +46,7 @@ com.casin.info包中负责用户信息的存储。
     
     
     3.由于作者能力有限，整个程序的功能很单一。
+    
+    
+##新添加功能
+  添加了查询余额的功能。
