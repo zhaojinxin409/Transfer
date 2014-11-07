@@ -13,6 +13,8 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.casin.info.Config;
+
 import android.util.Log;
 
 /**
@@ -25,7 +27,7 @@ public class balance {
 	public static String getBalance(Map<String , String> cookies){
 		Connection con = Jsoup.connect(url);
 		try {
-			Response rsp = con.cookies(cookies).timeout(10000).execute();
+			Response rsp = con.cookies(cookies).timeout(Config.timeout).execute();
 			String temp = rsp.body();
 			Elements spans = Jsoup.parseBodyFragment(temp).getElementsByTag("span");
 			List<String> result = new ArrayList<String>();

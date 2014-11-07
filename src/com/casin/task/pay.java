@@ -14,6 +14,8 @@ import org.jsoup.Connection.Response;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import com.casin.info.Config;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
@@ -52,14 +54,14 @@ public class pay {
 	public Bitmap[] transfer1(Map<String, String> cookies , boolean flag) throws Exception {
 		// you have to get the tranfer page first
 		Response tp = Jsoup.connect(url + "/CardManage/CardInfo/Transfer")
-				.cookies(cookies).ignoreContentType(true).execute();
+				.cookies(cookies).timeout(Config.timeout).ignoreContentType(true).execute();
 		Document d_tp = tp.parse();
 		Element tag_img = d_tp.select("#img_WSTransferCheckCode").get(0);
 		// get the key pad
 		Bitmap kp = null;
 		if(flag){
 			Response kpRps = Jsoup.connect(url + "/Account/GetNumKeyPadImg")
-					.cookies(cookies).ignoreContentType(true).execute();
+					.cookies(cookies).ignoreContentType(true).timeout(Config.timeout).execute();
 			byte[] kpByte = kpRps.bodyAsBytes();
 			kp = BitmapFactory
 					.decodeStream(new ByteArrayInputStream(kpByte)).copy(
@@ -71,7 +73,7 @@ public class pay {
 		String imgUrl = url + tag_img.attr("src");
 //		System.out.println(imgUrl);
 		Connection imgCon = Jsoup.connect(imgUrl);
-		Response imgRps = imgCon.cookies(cookies).ignoreContentType(true)
+		Response imgRps = imgCon.cookies(cookies).ignoreContentType(true).timeout(Config.timeout)
 				.execute();
 		byte[] imgByte = imgRps.bodyAsBytes();
 		Bitmap img = BitmapFactory.decodeStream(new ByteArrayInputStream(
@@ -106,7 +108,7 @@ public class pay {
 				+ "/CardManage/CardInfo/DoTransferPay");
 		Response ret;
 		try{
-			ret = trans.cookies(cookies).timeout(25000).data(info).ignoreContentType(true)
+			ret = trans.cookies(cookies).timeout(25000).data(info).ignoreContentType(true).timeout(Config.timeout)
 				.execute();
 		}catch(SocketTimeoutException ea){
 			return "Á¬½Ó³¬Ê±";

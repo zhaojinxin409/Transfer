@@ -25,6 +25,8 @@ public class NumberDialog extends Dialog{
 	protected void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.picker);
+		this.setCanceledOnTouchOutside(false);
+		this.setCancelable(false);
 		choosen_money = (TextView)findViewById(R.id.choosen_money);
 		choosen_money.setText("0Ԫ");
 		pickers[0] = (NumberPicker)findViewById(R.id.numberPicker1);

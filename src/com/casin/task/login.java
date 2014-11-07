@@ -15,6 +15,8 @@ import org.jsoup.Connection.Response;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import com.casin.info.Config;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -46,7 +48,7 @@ public class login {
 	public Bitmap loginAction1(Map<String,String> cookies) throws Exception{
 		Connection con = Jsoup.connect(url);
 		//Document doc = con.get();
-		Response rps = con.execute();
+		Response rps = con.timeout(Config.timeout).execute();
 		
 		Document doc = rps.parse();
 		cookies.putAll(rps.cookies());
@@ -61,7 +63,7 @@ public class login {
 		String imgUrl = url + imgTag.attr("src");
 //		System.out.println(imgUrl);
 		Connection imgCon = Jsoup.connect(imgUrl);
-		Response imgRps = imgCon.cookies(cookies).ignoreContentType(true).execute();
+		Response imgRps = imgCon.cookies(cookies).ignoreContentType(true).timeout(Config.timeout).execute();
 		byte[] imgByte = imgRps.bodyAsBytes();
 //		System.out.println("-----------------" + imgByte);
 //		for(int i = 0; i < imgByte.length ; i++){
@@ -87,7 +89,7 @@ public class login {
 //		info.put(scheckcode, new ImageFrame().show(img));
 		info.put(scheckcode, checkcode);
 		info.put(sisUsedKeyPad, isUsedKeyPad);
-		Response loginRps = login.timeout(20000).cookies(cookies).data(info).execute();
+		Response loginRps = login.timeout(Config.timeout_big).cookies(cookies).data(info).execute();
 		cookies.putAll(loginRps.cookies());
 		return loginRps.body();
 //		for(String key : cookies.keySet()){
