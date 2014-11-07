@@ -55,11 +55,11 @@ public class login {
 //		}
 		
 		//Check Image
-		System.out.println(url);
+//		System.out.println(url);
 		Element imgTag = doc.select("#imgCheckCode").get(0);
-		System.out.println(imgTag.attr("src"));
+//		System.out.println(imgTag.attr("src"));
 		String imgUrl = url + imgTag.attr("src");
-		System.out.println(imgUrl);
+//		System.out.println(imgUrl);
 		Connection imgCon = Jsoup.connect(imgUrl);
 		Response imgRps = imgCon.cookies(cookies).ignoreContentType(true).execute();
 		byte[] imgByte = imgRps.bodyAsBytes();

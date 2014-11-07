@@ -25,5 +25,9 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="wating">请等待</string>
     <string name="sbalance">当前余额：</string>
+    <string name="s_choosen_title">请选择金额</string>
+    <string name="s_choosen">金额为：</string>
+    <string name="enter">确定</string>
+    <string name="clickme">点我自定义金额</string>
 
 </resources>

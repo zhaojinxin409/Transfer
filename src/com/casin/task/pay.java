@@ -69,7 +69,7 @@ public class pay {
 
 		// get the checkcode
 		String imgUrl = url + tag_img.attr("src");
-		System.out.println(imgUrl);
+//		System.out.println(imgUrl);
 		Connection imgCon = Jsoup.connect(imgUrl);
 		Response imgRps = imgCon.cookies(cookies).ignoreContentType(true)
 				.execute();
@@ -114,7 +114,7 @@ public class pay {
 			throw e;
 		}
 		
-		System.out.println(ret.body());
+//		System.out.println(ret.body());
 		return ret.body();
 
 	}

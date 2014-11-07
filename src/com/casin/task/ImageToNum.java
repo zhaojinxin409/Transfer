@@ -53,7 +53,7 @@ public class ImageToNum {
 					}else{
 						map.put(5+"", map.get(recognize+""));
 					}
-					System.out.println("1111111111111111111111111111111111111");
+//					System.out.println("1111111111111111111111111111111111111");
 				}
 			}
 			if(recognize == 5){
@@ -65,11 +65,11 @@ public class ImageToNum {
 					}else{
 						map.put(6+"", map.get(recognize+""));
 					}
-					System.out.println("222222222222222222222222222222222222222");
+//					System.out.println("222222222222222222222222222222222222222");
 				}
 			}
-			System.out.print(i + "---" + getPicString(array[i]) + "----");
-			System.out.println(recognize);
+//			System.out.print(i + "---" + getPicString(array[i]) + "----");
+//			System.out.println(recognize);
 			map.put( recognize+"", i+"");
 		}
 //		for(int i = 0 ; i < array.length ; i++){
@@ -78,9 +78,9 @@ public class ImageToNum {
 //			map.put(i+"", recognize+"");
 //		}
 		//transform
-		for(String key : map.keySet()){
-			System.out.println(key);
-		}
+//		for(String key : map.keySet()){
+//			System.out.println(key);
+//		}
 		if(map.keySet().size() != 10)
 			return null;
 		StringBuilder temp = new StringBuilder();

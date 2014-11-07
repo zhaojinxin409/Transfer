@@ -8,7 +8,6 @@ import com.casin.info.InfoStorer;
 import com.casin.task.balance;
 import com.casin.task.login;
 import com.casin.task.pay;
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 import android.os.AsyncTask;
 import android.os.Build;
@@ -28,6 +27,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -39,10 +40,10 @@ import android.widget.Toast;
 public class MainFrame extends Activity {
 	
 	private String url = "http://card.sdu.edu.cn";
-	private String username = "226107";
-	private String password = "122024"; //login password
-	private String amt = "0.1";   //the num of tranfer
-	private String bankno = "6217856000009755223";
+	private String username = "";
+	private String password = ""; //login password
+	private String amt = "";   //the num of tranfer
+	private String bankno = "";
 	
 	
 	
@@ -60,6 +61,7 @@ public class MainFrame extends Activity {
 	private EditText etPassword;	//password
 	private EditText etAmtNumber;	//The bank no
 	private RadioGroup radioGroup1;
+	private RadioButton clickme;
 	private TextView tvBalance;
 	
 	
@@ -163,6 +165,15 @@ public class MainFrame extends Activity {
 		checkcode2 = (EditText)findViewById(R.id.etCheckCode1);
 		view2 = (ImageView)findViewById(R.id.imageView2);
 		radioGroup1 = (RadioGroup)findViewById(R.id.radioGroup1);
+		clickme = (RadioButton)findViewById(R.id.radio3);
+		clickme.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				clickme.setChecked(true);
+				new NumberDialog(MainFrame.this,clickme).show();
+			}
+		});
 		waitAnim(view2);
 		button2.setOnClickListener(new Button.OnClickListener(){
 		
@@ -438,7 +449,7 @@ public class MainFrame extends Activity {
 		
 		@Override
 		protected void onPostExecute(String result){
-			tvBalance.setText(tvBalance.getText().toString() + result);
+			tvBalance.setText(result);
 		}
 	}
 	

@@ -35,7 +35,7 @@ public class balance {
 					result.add(em.text());
 				}
 			}
-			return result.get(0) + "  +  " + result.get(1);
+			return "µ±Ç°Óà¶îÎª£º" + result.get(0) + "  +  " + result.get(1);
 		}catch(SocketTimeoutException ea){
 			ea.printStackTrace();
 		}catch (IOException e) {
