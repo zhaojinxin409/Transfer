@@ -27,6 +27,7 @@ public class NumberDialog extends Dialog{
 		setContentView(R.layout.picker);
 		this.setCanceledOnTouchOutside(false);
 		this.setCancelable(false);
+		this.setTitle("ÇëÑ¡Ôñ½ð¶î");
 		choosen_money = (TextView)findViewById(R.id.choosen_money);
 		choosen_money.setText("0Ôª");
 		pickers[0] = (NumberPicker)findViewById(R.id.numberPicker1);

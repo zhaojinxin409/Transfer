@@ -1,6 +1,9 @@
 package com.casin.transfer2;
 
+
+
 import java.net.SocketTimeoutException;
+import com.blueware.agent.android.BlueWare;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -75,7 +78,7 @@ public class MainFrame extends Activity {
 		super.onCreate(savedInstanceState);
 		//this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
 		//this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//去掉信息栏
-		
+		BlueWare.withApplicationToken("CA6BBF3144B11CBE51A287FE9CDF050865").start(this.getApplication());
 		vMain = getLayoutInflater().inflate(R.layout.main_view,null);
 		setContentView(vMain);
 		vTransfer= getLayoutInflater().inflate( R.layout.confirm, null );
@@ -85,6 +88,7 @@ public class MainFrame extends Activity {
 		etPassword = (EditText)findViewById(R.id.etPassword);
 		etAmtNumber = (EditText)findViewById(R.id.etAmtNumber);
 		checkcode = (EditText)findViewById(R.id.etCheckCode);
+		//check the info and login
 		button.setOnClickListener(new Button.OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
@@ -141,7 +145,7 @@ public class MainFrame extends Activity {
 	}
 	
 	/**
-	 * let the v play the loading animation
+	 * let the v play the loading animation espescially for the checkcode image
 	 * @param v
 	 */
 	protected void waitAnim(ImageView v){
@@ -336,8 +340,8 @@ public class MainFrame extends Activity {
 			if(arg){
 				checkcode.setText("");
 				Toast.makeText(MainFrame.this, "登录成功", Toast.LENGTH_LONG).show();
-				vMain.startAnimation(AnimationUtils.loadAnimation(MainFrame.this, android.R.anim.slide_out_right));
-				vTransfer.setAnimation(AnimationUtils.loadAnimation(MainFrame.this, android.R.anim.slide_in_left));
+				vMain.startAnimation(AnimationUtils.loadAnimation(MainFrame.this, android.R.anim.fade_out));
+				vTransfer.setAnimation(AnimationUtils.loadAnimation(MainFrame.this, android.R.anim.fade_in));
 				setContentView(vTransfer);
 				//after logged in
 				init2();
