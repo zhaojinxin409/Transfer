@@ -423,7 +423,15 @@ public class MainFrame extends Activity {
 		protected void onPostExecute(Boolean flag){
 			
 			if(flag){
-				Toast.makeText(MainFrame.this, temp1.subSequence(19, temp1.length()-1), Toast.LENGTH_LONG).show();
+				CharSequence result = null;
+				try{
+					result = temp1.subSequence(19, temp1.length()-1);
+				}catch(StringIndexOutOfBoundsException ea){
+					result = temp1;
+				}catch(Exception ea){
+					result = temp1;
+				}
+				Toast.makeText(MainFrame.this, result, Toast.LENGTH_LONG).show();
 				checkcode2.setText("");
 				waitAnim(view2);
 				transferTask1 transfer1 = new transferTask1();
