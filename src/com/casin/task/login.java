@@ -16,6 +16,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import com.casin.info.Config;
+import com.casin.info.InfoStorer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -61,6 +62,7 @@ public class login {
 		Element imgTag = doc.select("#imgCheckCode").get(0);
 //		System.out.println(imgTag.attr("src"));
 		String imgUrl = url + imgTag.attr("src");
+		InfoStorer.checkCodeUrl1 = imgUrl;
 //		System.out.println(imgUrl);
 		Connection imgCon = Jsoup.connect(imgUrl);
 		Response imgRps = imgCon.cookies(cookies).ignoreContentType(true).timeout(Config.timeout).execute();

@@ -11,6 +11,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import android.content.Context;
+import android.widget.Toast;
 
 public class Log {
 	private static final DateFormat format=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -29,9 +30,14 @@ public class Log {
 	
 	public static Log configLog(Context c){
 		String path = null;
-		File[] fs = c.getExternalFilesDirs(null);
+		File[] fs = null;
+		try{
+			fs = c.getExternalFilesDirs(null);
+		}catch(NoSuchMethodError e){
+			e.printStackTrace();
+		}
 		if(fs == null){
-			path = "/mnt/logs/";
+			path = "/mnt/transfer2/logs/";
 		}else if(fs.length > 1){
 			path = fs[1].getPath();
 		}else{

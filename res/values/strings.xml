@@ -10,7 +10,7 @@
     <string name="amt_number">银行卡号</string>
     <string name="checkcode">验证码                     </string>
     <string name="submit">转账</string>
-    <string name="confirm">登录</string>
+    <string name="confirm">登      录</string>
     <string name="dialog_title">请输入验证码</string>
     <string name="amt_title">转账金额</string>
     <string name="samt1">30元</string>
@@ -29,5 +29,10 @@
     <string name="s_choosen">金额为：</string>
     <string name="enter">确定</string>
     <string name="clickme">点我自定义金额</string>
+    <string name="login_fail">登陆失败</string>
+    <string name="account_hint">请输入校园卡卡号</string>
+    <string name="pass_hint">请输入校园卡查询密码</string>
+    <string name="bankno_hint">请输入银行卡号</string>
+    <string name="checkcode_hint">请输入验证码</string>
 
 </resources>

@@ -15,6 +15,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import com.casin.info.Config;
+import com.casin.info.InfoStorer;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -71,6 +72,7 @@ public class pay {
 
 		// get the checkcode
 		String imgUrl = url + tag_img.attr("src");
+		InfoStorer.checkCodeUrl2 = imgUrl;
 //		System.out.println(imgUrl);
 		Connection imgCon = Jsoup.connect(imgUrl);
 		Response imgRps = imgCon.cookies(cookies).ignoreContentType(true).timeout(Config.timeout)

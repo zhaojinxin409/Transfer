@@ -14,6 +14,7 @@ public final class R {
         public static final int animation_right_in=0x7f040002;
         public static final int animation_right_out=0x7f040003;
         public static final int loadanimation=0x7f040004;
+        public static final int reload=0x7f040005;
     }
     public static final class attr {
     }
@@ -46,37 +47,40 @@ public final class R {
         public static final int loading08=0x7f02000b;
         public static final int loading09=0x7f02000c;
         public static final int loading10=0x7f02000d;
+        public static final int pading_bottom=0x7f02000e;
+        public static final int reload=0x7f02000f;
     }
     public static final class id {
-        public static final int about=0x7f0a001b;
+        public static final int about=0x7f0a001c;
         public static final int balance=0x7f0a0001;
-        public static final int button=0x7f0a0015;
-        public static final int button1=0x7f0a000b;
-        public static final int choosen_money=0x7f0a0019;
-        public static final int enter=0x7f0a001a;
-        public static final int etAccount=0x7f0a000e;
-        public static final int etAmtNumber=0x7f0a0011;
-        public static final int etCheckCode=0x7f0a0014;
-        public static final int etCheckCode1=0x7f0a000a;
-        public static final int etPassword=0x7f0a000f;
-        public static final int exit=0x7f0a001c;
-        public static final int imageView1=0x7f0a0013;
-        public static final int imageView2=0x7f0a0009;
-        public static final int numberPicker1=0x7f0a0016;
-        public static final int numberPicker2=0x7f0a0017;
-        public static final int numberPicker3=0x7f0a0018;
-        public static final int radio0=0x7f0a0004;
-        public static final int radio1=0x7f0a0005;
-        public static final int radio2=0x7f0a0006;
-        public static final int radio3=0x7f0a0007;
-        public static final int radioGroup1=0x7f0a0003;
-        public static final int scrollView1=0x7f0a000c;
+        public static final int button=0x7f0a0016;
+        public static final int button1=0x7f0a000c;
+        public static final int choosen_money=0x7f0a001a;
+        public static final int enter=0x7f0a001b;
+        public static final int etAccount=0x7f0a000f;
+        public static final int etAmtNumber=0x7f0a0012;
+        public static final int etCheckCode=0x7f0a0015;
+        public static final int etCheckCode1=0x7f0a000b;
+        public static final int etPassword=0x7f0a0010;
+        public static final int exit=0x7f0a001d;
+        public static final int imageView1=0x7f0a0014;
+        public static final int imageView2=0x7f0a000a;
+        public static final int numberPicker1=0x7f0a0017;
+        public static final int numberPicker2=0x7f0a0018;
+        public static final int numberPicker3=0x7f0a0019;
+        public static final int radio0=0x7f0a0005;
+        public static final int radio1=0x7f0a0006;
+        public static final int radio2=0x7f0a0007;
+        public static final int radio3=0x7f0a0008;
+        public static final int radioGroup1=0x7f0a0004;
+        public static final int reload=0x7f0a0002;
+        public static final int scrollView1=0x7f0a000d;
         public static final int scrollView2=0x7f0a0000;
-        public static final int textView1=0x7f0a0002;
-        public static final int textView2=0x7f0a0008;
-        public static final int textView3=0x7f0a0010;
-        public static final int textView4=0x7f0a0012;
-        public static final int tvTitle=0x7f0a000d;
+        public static final int textView1=0x7f0a0003;
+        public static final int textView2=0x7f0a0009;
+        public static final int textView3=0x7f0a0011;
+        public static final int textView4=0x7f0a0013;
+        public static final int tvTitle=0x7f0a000e;
     }
     public static final class layout {
         public static final int confirm=0x7f030000;
@@ -88,16 +92,21 @@ public final class R {
     }
     public static final class string {
         public static final int account=0x7f060004;
+        public static final int account_hint=0x7f060019;
         public static final int action_settings=0x7f060001;
         public static final int amt_number=0x7f060006;
         public static final int amt_title=0x7f06000b;
         public static final int app_name=0x7f060000;
+        public static final int bankno_hint=0x7f06001b;
         public static final int checkcode=0x7f060007;
+        public static final int checkcode_hint=0x7f06001c;
         public static final int clickme=0x7f060017;
         public static final int confirm=0x7f060009;
         public static final int dialog_title=0x7f06000a;
         public static final int enter=0x7f060016;
         public static final int hello_world=0x7f060002;
+        public static final int login_fail=0x7f060018;
+        public static final int pass_hint=0x7f06001a;
         public static final int password=0x7f060005;
         public static final int s_choosen=0x7f060015;
         public static final int s_choosen_title=0x7f060014;

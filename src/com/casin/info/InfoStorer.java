@@ -9,6 +9,10 @@ public class InfoStorer {
 	public static final String sPassword = "password";
 	public static final String sBankno = "bankno";
 	
+	//add two url attribute
+	public static String checkCodeUrl1 = null;
+	public static String checkCodeUrl2 = null;
+	
 	SharedPreferences userInfo;
 	public InfoStorer(SharedPreferences userInfo){
 		this.userInfo = userInfo;

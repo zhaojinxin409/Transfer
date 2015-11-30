@@ -10,7 +10,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_marginLeft="10dp"
-    android:layout_marginTop="30dp"
+    android:layout_marginTop="10dp"
     android:layout_marginRight="10dp" >
 
     
@@ -25,7 +25,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
          />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp" >
@@ -34,15 +34,19 @@
             android:id="@+id/textView1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.42"
             android:text="@string/account"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
             android:id="@+id/etAccount"
-            android:layout_width="wrap_content"
+            android:background="@null"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_toRightOf="@+id/textView1"
+            android:layout_marginLeft="38dp"
+            android:layout_marginRight="20dp"
+            android:hint="@string/account_hint"
+            android:layout_alignBaseline="@+id/textView1"
             android:ems="10"
             android:inputType="number" 
             >
@@ -50,9 +54,15 @@
             <requestFocus />
         </EditText>
 
-    </LinearLayout>
+    </RelativeLayout>
+	<View  android:layout_height="1dp" 
+           android:layout_width="match_parent"
+           android:layout_marginTop="4dp"
+           android:background="#999999"
+           
 
-    <LinearLayout
+	/>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp" >
@@ -62,20 +72,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/password"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
             android:id="@+id/etPassword"
-            android:layout_width="0dip"
+            android:background="@null"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignBaseline="@+id/textView2"
             android:ems="10"
             android:inputType="textPassword" 
+            android:hint="@string/pass_hint"
             />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-    <LinearLayout
+    <View  android:layout_height="1dp" 
+           android:layout_width="match_parent"
+           android:layout_marginTop="4dp"
+           android:background="#999999"
+
+	/>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp" >
@@ -85,19 +106,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/amt_number"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
             android:id="@+id/etAmtNumber"
-            android:layout_width="0dip"
+            android:background="@null"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_toRightOf="@+id/textView3"
+            android:layout_alignBaseline="@+id/textView3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:ems="10"
             android:inputType="number"
+            android:hint="@string/bankno_hint"
              />
 
-    </LinearLayout>
+    </RelativeLayout>
+	<View  android:layout_height="1dp" 
+           android:layout_width="match_parent"
+           android:layout_marginTop="4dp"
+           android:background="#999999"
 
+	/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,33 +139,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/checkcode"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
+<!-- 120*80 -->
         <ImageView
             android:id="@+id/imageView1"
-            android:layout_width="120px"
-            android:layout_height="80px"
+            android:layout_width="60dp"   
+            android:layout_height="40dp"
              />
 
         <EditText
             android:id="@+id/etCheckCode"
-            android:layout_width="0dip"
+            android:background="@null"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:ems="10"
-            android:inputType="number" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:inputType="number"
+            android:layout_toRightOf="@+id/imageView1"
+            android:layout_marginLeft="34dp"
+            android:hint="@string/checkcode_hint"
+         />
 
-    </LinearLayout>
+    </RelativeLayout>
+	<View  android:layout_height="1dp" 
+           android:layout_width="match_parent"
+           android:layout_marginTop="0dp"
+           android:layout_marginLeft="85dp"
+           android:background="#999999"
 
+	/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" 
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="35dp"
         android:gravity="center|center_horizontal|center_vertical">
        
 	 	<Button

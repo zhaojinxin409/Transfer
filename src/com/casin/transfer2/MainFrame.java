@@ -1,41 +1,35 @@
 package com.casin.transfer2;
 
 
-
-import java.net.SocketTimeoutException;
 import com.blueware.agent.android.BlueWare;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import com.casin.info.InfoStorer;
 import com.casin.info.Log;
+import com.casin.task.ImageGetter;
 import com.casin.task.balance;
 import com.casin.task.login;
 import com.casin.task.pay;
 
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -58,6 +52,7 @@ public class MainFrame extends Activity {
 	private View vTransfer;
 	private ImageView view;	//the first check code image view
 	private ImageView view2;	//the second check code image view
+	private ImageView reload;	//the reload image
 	private EditText checkcode;	//the check code edit text
 	private EditText checkcode2;  //the second..you know  :)
 	private Bitmap keypad;    //OMG, how can i recognize you -,-!
@@ -73,6 +68,7 @@ public class MainFrame extends Activity {
 	private boolean hasInfo = true;
 	//added temp things
 	private String temp1;
+	private boolean isStarted = false;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -114,7 +110,35 @@ public class MainFrame extends Activity {
 			}
 			
 		});
-		
+		view.setOnClickListener(new OnClickListener(){
+
+			@SuppressWarnings("unchecked")
+			@Override
+			public void onClick(View arg0) {
+				// TODO 自动生成的方法存根
+				waitAnim((ImageView)arg0);
+				if(InfoStorer.checkCodeUrl1 != null){
+					LoginTask1 login = new LoginTask1();
+					login.execute(cookies);
+				}else{
+					try {
+						waitAnim(view);
+						Bitmap image = ImageGetter.getImage(InfoStorer.checkCodeUrl1, cookies);
+						if(image == null){
+							throw new NullPointerException("check code image null");
+						}
+						view.setBackgroundColor(Color.TRANSPARENT);
+						view.setImageBitmap(image);
+				        button.setEnabled(true);
+					} catch (Exception e) {
+						e.printStackTrace(com.casin.info.Log.err);
+					}
+					
+				}
+				
+			}
+			
+		});
 		init1(true);
 	}
 	
@@ -173,6 +197,7 @@ public class MainFrame extends Activity {
 		view2 = (ImageView)findViewById(R.id.imageView2);
 		radioGroup1 = (RadioGroup)findViewById(R.id.radioGroup1);
 		clickme = (RadioButton)findViewById(R.id.radio3);
+		reload = (ImageView)findViewById(R.id.reload);
 		clickme.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
@@ -180,6 +205,29 @@ public class MainFrame extends Activity {
 				clickme.setChecked(true);
 				new NumberDialog(MainFrame.this,clickme).show();
 			}
+		});
+		
+		view2.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				waitAnim(view2);
+				transferTask1 getter = new transferTask1();
+				getter.execute(false); 
+			}
+			
+		});
+		
+		reload.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View arg0) {
+				if(!isStarted){
+					BalanceTask balance = new BalanceTask();
+					balance.execute();
+				}
+			}
+			
 		});
 		waitAnim(view2);
 		button2.setOnClickListener(new Button.OnClickListener(){
@@ -361,7 +409,7 @@ public class MainFrame extends Activity {
 				button2.setEnabled(false);	
 				button2.setText(R.string.wating);
 			}else{
-				Toast.makeText(MainFrame.this, temp1, Toast.LENGTH_LONG).show();
+				Toast.makeText(MainFrame.this, R.string.login_fail+temp1, Toast.LENGTH_LONG).show();
 				checkcode.setText("");
 				waitAnim(view);
 				LoginTask1 login1 = new LoginTask1();
@@ -459,19 +507,34 @@ public class MainFrame extends Activity {
 		}
 	}
 	
-	
+	/**
+	 * Get the balance
+	 * @author Casin
+	 *
+	 */
 	private class BalanceTask extends AsyncTask<Void , Void , String>{
-
+		@Override
+		protected void onPreExecute(){
+			reload.startAnimation(AnimationUtils.loadAnimation(MainFrame.this, R.anim.reload));
+			isStarted = true;
+		}
+		
 		@Override
 		protected String doInBackground(Void... arg0) {
-			return balance.getBalance(cookies);
+			String result = balance.getBalance(cookies);
+			return result;
 		}
 		
 		
 		@Override
 		protected void onPostExecute(String result){
 			tvBalance.setText(result);
+			isStarted = false;
+			reload.getAnimation().cancel();
+			Toast.makeText(MainFrame.this, "余额加载成功" , Toast.LENGTH_SHORT).show();
+			
 		}
 	}
+	
 	
 }

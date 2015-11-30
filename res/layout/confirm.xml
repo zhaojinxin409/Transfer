@@ -11,7 +11,7 @@
     android:layout_marginTop="30dp"
     android:layout_marginRight="10dp" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -20,11 +20,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sbalance"
+            android:textColor="#1111EE"
+            android:layout_alignParentLeft="true"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
+		<ImageView 
+		    android:id="@+id/reload"
+		    android:layout_width="25dp"
+		    android:layout_height="25dp"
+		    android:layout_marginRight="20dp"
+		    android:background="@drawable/reload"
+		    android:layout_alignParentRight="true"
+		    />
+    </RelativeLayout>
+	<View  android:layout_height="1dp" 
+           android:layout_width="match_parent"
+           android:layout_marginTop="10dp"
+           android:layout_marginRight="20dp"
+           android:background="#999999"
+           
 
-    </LinearLayout>
-
+	/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -71,35 +87,51 @@
                 android:text="@string/clickme" />
         </RadioGroup>
     </LinearLayout>
+<View  android:layout_height="1dp" 
+           android:layout_width="match_parent"
+           android:layout_marginTop="4dp"
+           android:background="#999999"
 
+	/>
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/checkcode"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="120px"
-            android:layout_height="80px"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
             
           />
 
         <EditText
             android:id="@+id/etCheckCode1"
-            android:layout_width="0dip"
+            android:background="@null"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:ems="10"
-            android:inputType="number" />
-    </LinearLayout>
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:inputType="number"
+            android:layout_toRightOf="@+id/imageView2"
+            android:layout_alignBottom="@+id/imageView2"
+            android:layout_marginLeft="34dp"
+            android:hint="@string/checkcode_hint" />
+    </RelativeLayout>
+<View  android:layout_height="1dp" 
+           android:layout_width="match_parent"
+           android:layout_marginTop="0dp"
+           android:layout_marginLeft="85dp"
+           android:background="#999999"
 
+	/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
