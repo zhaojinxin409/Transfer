@@ -2,7 +2,7 @@
 
 ##安装文件下载地址
 
-  **[点我下载](https://code.csdn.net/zjx409/transfer2/tree/master/release/Transfer2.apk)或者在项目的release文件夹重下载。也可将项目clone到本地自行编译**
+  **[点我下载](http://pan.baidu.com/s/1nt8KMeP)或者在项目的release文件夹中下载。也可将项目clone到本地自行编译**
 
 ##简介
 
